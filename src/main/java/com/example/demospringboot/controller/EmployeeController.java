@@ -1,6 +1,7 @@
 package com.example.demospringboot.controller;
 
 import com.example.demospringboot.model.Employee;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +12,9 @@ public class EmployeeController {
     ArrayList<Employee> list=new ArrayList<Employee>();
    // End Point one
     @RequestMapping("/add_emp")
-    public String employee(){
-        Employee employee=new Employee("Anil",29,"manager");
+    // Use @Requestbody
+    public String employee(@RequestBody Employee employee){
+        // Employee employee=new Employee("Anil",29,"manager");
         list.add(employee);
         return "employee added with name"+employee.getName();
     }
